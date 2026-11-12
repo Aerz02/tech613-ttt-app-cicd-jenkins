@@ -98,7 +98,13 @@ function getMongoFallbackMessage(reason) {
 
 function getFooterVersionStamp() {
 	const configuredTimestamp = String(process.env.APP_FOOTER_TIMESTAMP || '').trim();
-	return configuredTimestamp ? `${APP_VERSION} ${configuredTimestamp}` : APP_VERSION;
+	const currentTime = new Date().toLocaleString('en-GB', {
+		timeZone: 'Europe/London',
+		dateStyle: 'medium',
+		timeStyle: 'short'
+	});
+	const timestamp = configuredTimestamp || currentTime;
+	return `${APP_VERSION} ${timestamp}`;
 }
 
 function defaultGameState() {
