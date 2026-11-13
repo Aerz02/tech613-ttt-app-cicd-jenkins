@@ -104,7 +104,7 @@ function getFooterVersionStamp() {
 		timeStyle: 'short'
 	});
 	const timestamp = configuredTimestamp || currentTime;
-	return `${APP_VERSION} ${timestamp} `;
+	return `${APP_VERSION} ${timestamp}`;
 }
 
 function defaultGameState() {
