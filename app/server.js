@@ -104,8 +104,7 @@ function getFooterVersionStamp() {
 		month: 'short',
 		year: 'numeric',
 		hour: '2-digit',
-		minute: '2-digit',
-		timeZoneName: 'short'
+		minute: '2-digit'
 	}).format(new Date());
 	const timestamp = configuredTimestamp || currentTime;
 	return `${APP_VERSION} ${timestamp} `;
