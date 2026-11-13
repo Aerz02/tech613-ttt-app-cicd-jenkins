@@ -98,14 +98,11 @@ function getMongoFallbackMessage(reason) {
 
 function getFooterVersionStamp() {
 	const configuredTimestamp = String(process.env.APP_FOOTER_TIMESTAMP || '').trim();
-	const currentTime = new Intl.DateTimeFormat('en-GB', {
+	const currentTime = new Date().toLocaleString('en-GB', {
 		timeZone: 'Europe/London',
-		day: '2-digit',
-		month: 'short',
-		year: 'numeric',
-		hour: '2-digit',
-		minute: '2-digit'
-	}).format(new Date());
+		dateStyle: 'medium',
+		timeStyle: 'short'
+	});
 	const timestamp = configuredTimestamp || currentTime;
 	return `${APP_VERSION} ${timestamp} `;
 }
